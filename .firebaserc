@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bodajezaymiguel": {
+      "hosting": {
+        "wedding-invite": [
+          "bodajezaymiguel"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "boda-jeza-y-miguel"
+  }
+}

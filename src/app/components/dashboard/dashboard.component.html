@@ -1,0 +1,139 @@
+<nav class="navbar navbar-expand-lg navbar-ligth bg-ligth">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#">
+        <img src="assets/wedding.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+        Invitados Boda
+        </a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" routerLinkActive>
+              <a class="nav-link active" aria-current="page" routerLink="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item" routerLinkActive>
+              <a class="nav-link" routerLink="/guest-management">Invitados</a>
+            </li>
+          </ul>
+        <form class="d-flex">
+          <button class="btn btn-outline-primary" type="button" (click)="authService.SingOut()">Cerrar Sesión</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-5" >
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">"Sin Enviar"</h5>
+                  <p class="card-text">{{ getTotalNotSent() }}</p>                 
+                </div>
+                <button class="card-footer btn btn-secondary">Detalle</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">"Enviadas" sin respuesta</h5>
+                  <p class="card-text">{{ getTotalSentWithoutResponse() }}</p>
+                </div>
+                <button class="card-footer btn btn-secondary">Detalle</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">"Enviadas"</h5>
+                  <p class="card-text">{{ getTotalSent() }}</p>
+                </div>
+                <button class="card-footer btn btn-secondary">Detalle</button>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Invitados Adultos</h5>
+                  <p class="card-text">{{ getTotalAdults() }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Invitados Niños</h5>
+                  <p class="card-text">{{ getTotalChilds() }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Total Invitados</h5>
+                  <p class="card-text">{{ getTotalGuests() }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">"SI Asistirá" Adultos</h5>
+                  <p class="card-text">{{ getTotalAdultsPositiveAsistance() }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">"SI Asistirá" Niños</h5>
+                  <p class="card-text">{{ getTotalChildsPositiveAsistance() }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">"SI Asistirá" Total</h5>
+                  <p class="card-text">{{ getTotalPositiveAsistance() }}</p>
+                </div>
+                <button class="card-footer btn btn-success">Detalle</button>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">"NO Asistirá" Adultos</h5>
+                  <p class="card-text">{{ getTotalAdultsNegativeAsistance() }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">"NO Asistirá" Niños</h5>
+                  <p class="card-text">{{ getTotalChildsNegativeAsistance() }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">"NO Asistirá" Total</h5>
+                  <p class="card-text">{{ getTotalNegativeAsistance() }}</p>
+                </div>
+                <button class="card-footer btn btn-danger">Detalle</button>
+            </div>
+        </div>
+
+      </div>
+
+  </div>
+
+
+

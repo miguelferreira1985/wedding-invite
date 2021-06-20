@@ -1,0 +1,187 @@
+
+        <div class="bgimg-1">
+            <div class="caption">
+                <h1 class="border">Jezabel Y Miguel</h1>
+                <span class="border">!Nos casamos!</span>
+                <br>
+                <span class="border-2">07-11-2021</span>
+            </div>
+        </div>
+        <div class="white-section">
+            <p>"Encontrar esposa es encontrar lo mejor,
+                <br>
+                es recibir una muestra del favor de Dios."</p>
+            <h2>- Proverbios 18:22</h2>
+        </div>
+        <div class="bgimg-2">
+            <div class="caption">
+                <span class="border-4">Nos casamos en</span>
+                <br>
+                <section>
+                    <div class="coming-soon">
+                        <div class="row time-countdown justify-content-center">
+                            <div class="col-3 clock">
+                                <p class=" count-bg-one radius count-size-2"><span class="count-size" id="days">{{ days | number: '2.0-0' }}</span>Días</p>
+                            </div>
+                            <div class="col-3 clock">
+                                <p class="count-bg-one radius count-size-2"><span class="count-size" id="days">{{ hours | number: '2.0-0' }}</span>Horas</p>
+                            </div>
+                            <div class="col-3 clock">
+                                <p class="count-bg-one radius count-size-2"><span class="count-size" id="days">{{ minutes | number: '2.0-0' }}</span>Minutos</p>
+                            </div>
+                            <div class="col-3 clock">
+                                <p class="count-bg-one radius count-size-2"><span class="count-size" id="days">{{ seconds | number: '2.0-0' }}</span>Segundos</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <br>
+                <br>
+                <span class="border-3">Domingo 7 de Noviembre de 2021</span>
+            </div>
+        </div>    
+        <div class="white-section">
+            <div class="row">
+                <h1 class="col-12 title">Agenda</h1>
+            </div>
+            <div class="row">
+                <i class="col-2 bi bi-people"></i>
+                <p class="col-8 event">1:30 p.m. Ceremonia Religiosa</p>
+            </div>
+            <div class="row">
+                <i class="col-2 bi bi-speaker"></i>
+                <p class=" col-8 event" >3:00 p.m. Recepción</p>
+            </div>
+            <div class="row">
+                <h1 class=" col-12 title">¿Dónde será?</h1>
+            </div>
+            <div class="row">
+                <p class=" col-12 instructions">Al seleccionar el botón podrás ir al mapa para indicarte cómo llegar</p>
+            </div>
+        </div>
+        <div class="bgimg-4">
+            <div class="row caption">
+                <div class="col-1"></div>
+                <div class=" border-3 col-10">
+                    <p class="border-3">Ceremonia Religiosa</p>
+                    <i class="bi bi-alarm" style="font-size: 24px;"></i>
+                    <p class="border-3" style="font-size: 30px;">01:30 p.m.</p>
+                    <p class="border-3 address" >"Jardín Las Moras", Vicente Guerrero 38, 
+                        <br>
+                        Cuautlixco, 62749 Cuautla, Morelos</p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+        <div class="white-section">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <a href="https://goo.gl/maps/Lm9UStkq6YmZFQ8KA" target="_blank" class="btn btn-outline-secondary btn-lg">Ver Mapa</a>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+        <div class="bgimg-5">
+            <div class="row caption">
+                <div class="col-1"></div>
+                <div class=" border-3 col-10">
+                    <p class="border-3">Recepción</p>
+                    <i class="bi bi-alarm" style="font-size: 24px;"></i>
+                    <p class="border-3" style="font-size: 30px;">3:00 p.m.</p>
+                    <p class="border-3 address">"Jardín Las Moras", Vicente Guerrero 38, 
+                        <br>
+                        Cuautlixco, 62749 Cuautla, Morelos</p>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+        <div class="white-section">
+            <div class="row">
+               <hr>
+               <hr>
+            </div>
+        </div>
+        <div class="bgimg-3">
+            <div class="caption">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class=" border-3 col-10">
+                        <p class="border-5">Confirmación de Asistencia</p>
+                        <p class="border-7">!Nos encantaría compartir este momento tan especial contigo y tu familia!</p>
+                        <p class="border-7">Por favor, confirmar si contaremos con su presencia.</p>
+                        <p class="border-8">{{ _guest.name }} y Familia</p>
+                        <form  class="row">
+                            <div class="col-md-4 adults-childs">
+                                <label class="form-label confirm-label">Adultos</label>
+                                <input type="number" value="{{ _guest.adults }}" min="1" max="{{ _guest.adults }}" #adults class="form-control form-control-lg" oninput="javascript: if(this.value > this.max) this.value = this.max;">
+                            </div>
+                            <div class="col-4"></div>
+                            <div class="col-md-4 adults-childs">
+                                <label class="form-label confirm-label ">Niños</label>
+                                <input type="number" value="{{ _guest.childs }}" min="0" max="{{ _guest.childs }}"  #childs class="form-control form-control-lg" oninput="javascript: if(this.value > this.max) this.value = this.max;">
+                            </div>
+                            <div class="col-1"></div>
+                            <div class="col-10">
+                                <button type="button" class="btn btn-success btn-lg me-1"(click)="confirmAsistance( adults.value, childs.value)">SI Asistiré</button>
+                                <button type="button" class="btn btn-danger btn-lg" (click)="negativeAsistance()">NO Asistiré</button>
+                            </div>
+                            <div class="col-1"></div>
+                        </form>
+
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="white-section">
+            <div class="row">
+                <h1 class=" col-12 title">Mesa de Regalos</h1>
+                <p>Agradecemos que quieran ser parte de este gran paso en nuetras vidas al iniciar una nueva familia.</p>
+                <p>En el siguiente icono podrás ver nuestra mesa de regalos</p>
+            </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/50585181" target="_blank">
+                        <i class="bi bi-gift"></i> 
+                    </a>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+        <br>
+        <div class="white-section">
+            <div class="row">
+                <h1 class=" col-12 title">Por salud</h1>
+            </div>
+            <div class="row">
+                <i class=" col-2 bi bi-emoji-laughing icons"></i>
+                <p class="col-8 event">Sugerimos uso del cubrebocas durante el evento.</p>
+            </div>
+            <div class="row">
+                <i class="col-2 bi bi-droplet icons"></i>
+                <p class=" col-8 event">Aplicarse gel antibacterial al llegar al evento.</p>
+            </div>
+            <div class="row">
+                <i class="col-2 bi bi-hand-thumbs-up icons"></i>
+                <p class=" col-8 event">Lavado de manos recurrente durante el evento.</p>
+            </div>
+        </div>
+        <br>
+        <div class="white-section">
+            <div class="row">
+                <h1 class=" col-12 title">Galería</h1>
+            </div>
+            <div class="row justify-contendt-md-center">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <ngb-carousel *ngIf="images">
+                        <ng-template ngbSlide *ngFor="let image of images; let i = index">
+                            <img class="img-thumbnail text-center" width="80%" height="60%" [src]="image">
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>

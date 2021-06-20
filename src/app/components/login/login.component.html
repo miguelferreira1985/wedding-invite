@@ -1,0 +1,25 @@
+
+
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="assets/wedding.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form>
+        <input type="text"  class="fadeIn second"  placeholder="Usuario" #userName required>
+        <input type="text" class="fadeIn third"  placeholder="Contraseña" #userPassword required>
+        <input type="button" class="fadeIn fourth" value="Iniciar sesión" (click)="authService.SignIn(userName.value, userPassword.value)">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" routerLink="/forgot-password">¿Olvidó su contraseña?</a>
+      </div>
+  
+    </div>
+  </div>
