@@ -19,6 +19,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { DetailsInviteSentComponent } from './components/details-invite-sent/details-invite-sent.component';
+import { DetailsInviteSentWithoutResponseComponent } from './components/details-invite-sent-without-response/details-invite-sent-without-response.component';
+import { DetailsInviteConfirmedYesComponent } from './components/details-invite-confirmed-yes/details-invite-confirmed-yes.component';
+import { DetailsInviteConfirmedNoComponent } from './components/details-invite-confirmed-no/details-invite-confirmed-no.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     GuestManagementComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    DetailsInviteSentComponent,
+    DetailsInviteSentWithoutResponseComponent,
+    DetailsInviteConfirmedYesComponent,
+    DetailsInviteConfirmedNoComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +45,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     AngularFireAuthModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule,
+    NgbModule
   ],
   providers: [ 
     AuthService,

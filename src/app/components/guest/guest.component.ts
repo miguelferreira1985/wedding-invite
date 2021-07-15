@@ -19,7 +19,9 @@ export class GuestComponent implements OnInit {
 
   _guest: any;
 
-  images: String[] = ['assets/Foto1.jpeg', 'assets/Foto2.jpg', 'assets/Foto3.jpg', 'assets/Foto4.jpg', 'assets/Foto5.jpg'];
+  images: String[] = ['assets/Foto_Anillo.jpeg', 'assets/Foto2.jpg', 'assets/Foto3.jpg', 'assets/Foto6.jpeg', 'assets/Foto8.jpeg',
+                      'assets/Foto9.jpeg', 'assets/Foto10.jpeg', 'assets/Foto11.jpeg', 'assets/Foto12.jpeg', 'assets/Foto13.jpeg', 'assets/Foto14.jpeg', 'assets/Foto16.jpeg',
+                    'assets/Foto17.jpeg', 'assets/Foto_Anillo.jpeg'];
 
   second: number = 1000;
   minute: number = this.second * 60;
@@ -60,7 +62,7 @@ export class GuestComponent implements OnInit {
 
     this.clock = this.source.subscribe( t => {
       this.now = new Date();
-      this.end = new Date('11/07/2021' +' 13:30');
+      this.end = new Date('11/07/2021' +' 14:00');
       this.showDate();
     });
 
@@ -76,13 +78,11 @@ export class GuestComponent implements OnInit {
     guest.childs = childs;
     guest.inviteStatus = "Asistira";
 
-    console.log( guest );
-
     this.guestService.updateGuest(guest, this.id)
       .then( resp => {
         
         Swal.fire({
-          title: 'Será un gusto que nos acompañes ese día con tu familia.',
+          title: 'Será un gusto que nos acompañes ese día.',
           text: '¡Muchas gracias por confirma!',
           icon: 'success',
           position: 'center',
@@ -101,8 +101,6 @@ export class GuestComponent implements OnInit {
     Object.assign(guest, this._guest);
 
     guest.inviteStatus = "No Asistira";
-
-    console.log( guest );
 
     this.guestService.updateGuest(guest, this.id)
     .then( resp => {
@@ -123,10 +121,21 @@ export class GuestComponent implements OnInit {
   showDate() {
     let distance = this.end - this.now;
 
-    this.days = Math.floor(distance / this.day);
-    this.hours = Math.floor((distance % this.day) / this.hour);
-    this.minutes = Math.floor((distance % this.hour) / this.minute);
-    this.seconds = Math.floor((distance % this.minute) / this.second);
+    if( distance == 0 || distance < 0) {
+
+      this.days = 0;
+      this.hours = 0;
+      this.minutes = 0;
+      this.seconds = 0;
+
+    } else {
+
+      this.days = Math.floor(distance / this.day);
+      this.hours = Math.floor((distance % this.day) / this.hour);
+      this.minutes = Math.floor((distance % this.hour) / this.minute);
+      this.seconds = Math.floor((distance % this.minute) / this.second);
+
+    }
   }
 
 }

@@ -29,8 +29,6 @@ export class GuestManagementComponent implements OnInit {
     this.guestService.getGuestList()
     .subscribe( resp => {
       this.guests = resp;
-
-      this.guests = this.guests.sort((a, b) => a.name.localeCompare(b.name));
     });
 
       this.createGuestForm();
@@ -76,21 +74,21 @@ export class GuestManagementComponent implements OnInit {
 
   updateInviteStatus( guest: Guest ) {
 
-    guest.inviteStatus = "Enviado"
+    guest.inviteStatus = "Enviado";
 
     this.guestService.updateGuest(guest, guest.id);
 
   }
 
   onSubmit( value) {
-
-    console.log(value);
     
     if ( this.guestForm.invalid) {
       return;
     }
 
     let guest: Guest;
+
+    let user = JSON.parse(localStorage.getItem('user'));
 
     guest = {
       id: value.id,
@@ -103,6 +101,8 @@ export class GuestManagementComponent implements OnInit {
 
     if ( value.id == '' ) {
 
+      console.log(user.email);
+
       this.guestService.createGuest( guest );
 
       this.clearForm();
@@ -111,7 +111,6 @@ export class GuestManagementComponent implements OnInit {
       
       this.guestService.updateGuest( guest, guest.id )
         .then( resp => {
-          console.log( resp );
 
           Swal.fire({
             title: 'El invitado se editó correctamente.',
@@ -122,7 +121,6 @@ export class GuestManagementComponent implements OnInit {
           });
 
         }).catch( err => {
-          console.log( err );
 
           Swal.fire({
             title: 'El invitado NO se editó correctamente, intente nuevament.',
@@ -156,7 +154,6 @@ export class GuestManagementComponent implements OnInit {
         this.guestService.deleteGuest( guest )
             .then( resp => {
             
-
             Swal.fire('¡Invitado eliminado!', 'El invitado se eliminó correctamente.', 'success');
 
           }).catch( err => {

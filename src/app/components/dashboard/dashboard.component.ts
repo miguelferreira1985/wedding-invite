@@ -13,7 +13,10 @@ export class DashboardComponent implements OnInit {
 
   guests: Guest[] = [];
 
-  constructor( public authService: AuthService, private guestService: GuestService ) {
+
+
+  constructor( public authService: AuthService, 
+               private guestService: GuestService ) {
 
     this.guestService.getGuestList()
     .subscribe( resp => {

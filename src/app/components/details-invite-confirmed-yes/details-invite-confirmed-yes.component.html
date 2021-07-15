@@ -25,48 +25,11 @@
   
   <div class="container mt-5">
 
-    <form id="editForm" tabindex="100" class="row g-3" [formGroup]="guestForm" (ngSubmit)="onSubmit( guestForm.value )" novalidate>
+    <a class="btn btn-outline-primary btn-lg" routerLink="/dashboard">Regresar</a>
 
-        <div class="col-12">
-            <label class="form-label">Id</label>
-            <input type="text" formControlName="id" class="form-control" readonly>
-        </div>
-
-        <div class="col-md-8">
-            <label class="form-label">Nombre</label>
-            <input type="text" formControlName="name" class="form-control" required>
-        </div>
-
-        <div class="col-md-4">
-            <label class="form-label">Celular</label>
-            <input type="text" formControlName="phone" class="form-control" required>
-        </div>
-
-        <div class="col-md-4">
-            <label class="form-label">Adultos</label>
-            <input type="number" value="1" min="1" formControlName="adults" class="form-control">
-        </div>
-
-        <div class="col-md-4">
-            <label class="form-label">Niños</label>
-            <input type="number" value="0" min="0" formControlName="childs" class="form-control">
-        </div>
-
-        <div class="col-md-4">
-            <label class="form-label">Estado</label>
-            <select class="form-select" formControlName="inviteStatus">
-                <option selected value="Sin Enviar">Sin Enviar</option>
-                <option value="Enviado">Enviado</option>
-                <option value="Asistira">Asistirá</option>
-                <option value="No Asistira">No Asistirá</option>
-            </select>
-        </div>
-
-        <div class="col-12">
-            <button type="submit" class="btn btn-primary me-1" [disabled]="!guestForm.valid">Guardar</button>
-            <button type="button" class="btn btn-danger" (click)="clearForm()">Cancelar</button>
-        </div>
-    </form>
+    <div class="jumbotron">
+        <h1 class="display-4" style="text-align: center;">Invitaciones "Si Asistirá"</h1>
+    </div>
 
     <table class="table mb-3">
 
@@ -84,25 +47,22 @@
 
         <tbody>
             <tr *ngFor="let guest of guests; let i = index">
-                <th scope="row">{{ i + 1 }}</th>
-                <td>{{ guest.name }}</td>
-                <td>{{ guest.phone }}</td>
-                <td>{{ guest.adults }}</td>
-                <td>{{ guest.childs }}</td>
-                <td [ngSwitch]="guest.inviteStatus">
+                <th *ngIf="guest.inviteStatus == 'Asistira'" scope="row">{{ i + 1 }}</th>
+                <td *ngIf="guest.inviteStatus == 'Asistira'">{{ guest.name }}</td>
+                <td *ngIf="guest.inviteStatus == 'Asistira'">{{ guest.phone }}</td>
+                <td *ngIf="guest.inviteStatus == 'Asistira'">{{ guest.adults }}</td>
+                <td *ngIf="guest.inviteStatus == 'Asistira'">{{ guest.childs }}</td>
+                <td *ngIf="guest.inviteStatus == 'Asistira'" [ngSwitch]="guest.inviteStatus">
                     <span *ngSwitchCase="'Sin Enviar'" class="badge bg-secondary">{{ guest.inviteStatus }}</span>
                     <span *ngSwitchCase="'Enviado'" class="badge bg-primary">{{ guest.inviteStatus }}</span>
                     <span *ngSwitchCase="'Asistira'" class="badge bg-success">{{ guest.inviteStatus }}</span>
                     <span *ngSwitchCase="'No Asistira'" class="badge bg-danger">{{ guest.inviteStatus }}</span>
                     <span *ngSwitchDefault class="badge bg-secondary">Sin Estado</span>
                 </td>
-                <td>
+                <td *ngIf="guest.inviteStatus == 'Asistira'">
                     <a href="https://wa.me/52{{ guest.phone }}?text={{ inviteURL }}%23/guest/{{ guest.id }}" class="btn btn-success me-1" target="_blank" (click)="updateInviteStatus( guest )">
                         <i class="bi bi-whatsapp"></i>
                     </a>
-                    <button class="btn btn-primary" (click)="fillForm( guest )">
-                        <i class="bi bi-pencil-fill"></i>
-                    </button>
                     <button class="btn btn-danger ms-1" (click)="removeGuest( guest )">
                         <i class="bi bi-trash-fill" ></i>
                     </button>
@@ -113,3 +73,5 @@
     </table>
 
   </div>
+
+

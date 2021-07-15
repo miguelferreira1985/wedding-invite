@@ -25,7 +25,7 @@ export class GuestService {
 
   getGuestList() { 
 
-    this.guestsCollection = this.angularFirestore.collection('guest-collection');
+    this.guestsCollection = this.angularFirestore.collection<Guest>('guest-collection', ref => ref.orderBy("name", "asc") );
 
     return this.guestsCollection.snapshotChanges()
             .pipe(

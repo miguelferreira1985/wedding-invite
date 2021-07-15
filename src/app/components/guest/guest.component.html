@@ -46,60 +46,39 @@
             </div>
             <div class="row">
                 <i class="col-2 bi bi-people"></i>
-                <p class="col-8 event">1:30 p.m. Ceremonia Religiosa</p>
+                <p class="col-8 event">2:00 p.m. Ceremonia Religiosa</p>
             </div>
             <div class="row">
                 <i class="col-2 bi bi-speaker"></i>
-                <p class=" col-8 event" >3:00 p.m. Recepción</p>
+                <p class=" col-8 event" >3:30 p.m. Recepción</p>
             </div>
             <div class="row">
                 <h1 class=" col-12 title">¿Dónde será?</h1>
             </div>
-            <div class="row">
-                <p class=" col-12 instructions">Al seleccionar el botón podrás ir al mapa para indicarte cómo llegar</p>
-            </div>
         </div>
-        <div class="bgimg-4">
+        <div class="bgimg-4 mt-1">
             <div class="row caption">
                 <div class="col-1"></div>
                 <div class=" border-3 col-10">
                     <p class="border-3">Ceremonia Religiosa</p>
-                    <i class="bi bi-alarm" style="font-size: 24px;"></i>
-                    <p class="border-3" style="font-size: 30px;">01:30 p.m.</p>
+                    <p class="border-3">y</p>
+                    <p class="border-3">Recepción</p>
                     <p class="border-3 address" >"Jardín Las Moras", Vicente Guerrero 38, 
                         <br>
                         Cuautlixco, 62749 Cuautla, Morelos</p>
                 </div>
-                <div class="col-1"></div>
+                <div class="col-1">
+                    
+                </div>
             </div>
         </div>
         <div class="white-section">
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-4">
-                    <a href="https://goo.gl/maps/Lm9UStkq6YmZFQ8KA" target="_blank" class="btn btn-outline-secondary btn-lg">Ver Mapa</a>
+                    <a href="https://goo.gl/maps/Lm9UStkq6YmZFQ8KA" target="_blank" class="btn btn-outline-secondary btn-md">¿Comó llegar?</a>
                 </div>
                 <div class="col-4"></div>
-            </div>
-        </div>
-        <div class="bgimg-5">
-            <div class="row caption">
-                <div class="col-1"></div>
-                <div class=" border-3 col-10">
-                    <p class="border-3">Recepción</p>
-                    <i class="bi bi-alarm" style="font-size: 24px;"></i>
-                    <p class="border-3" style="font-size: 30px;">3:00 p.m.</p>
-                    <p class="border-3 address">"Jardín Las Moras", Vicente Guerrero 38, 
-                        <br>
-                        Cuautlixco, 62749 Cuautla, Morelos</p>
-                </div>
-                <div class="col-1"></div>
-            </div>
-        </div>
-        <div class="white-section">
-            <div class="row">
-               <hr>
-               <hr>
             </div>
         </div>
         <div class="bgimg-3">
@@ -108,9 +87,9 @@
                     <div class="col-1"></div>
                     <div class=" border-3 col-10">
                         <p class="border-5">Confirmación de Asistencia</p>
-                        <p class="border-7">!Nos encantaría compartir este momento tan especial contigo y tu familia!</p>
-                        <p class="border-7">Por favor, confirmar si contaremos con su presencia.</p>
-                        <p class="border-8">{{ _guest.name }} y Familia</p>
+                        <p class="border-7">!Nos encantaría compartir este momento tan especial con cada uno de ustedes!</p>
+                        <p class="border-7">Por favor, confirmanos si contaremos con su presencia.</p>
+                        <p class="border-8">{{ _guest.name }}</p>
                         <form  class="row">
                             <div class="col-md-4 adults-childs">
                                 <label class="form-label confirm-label">Adultos</label>
@@ -118,11 +97,12 @@
                             </div>
                             <div class="col-4"></div>
                             <div class="col-md-4 adults-childs">
-                                <label class="form-label confirm-label ">Niños</label>
+                                <label class="form-label confirm-label ">Niños(Menor de 11 años)</label>
                                 <input type="number" value="{{ _guest.childs }}" min="0" max="{{ _guest.childs }}"  #childs class="form-control form-control-lg" oninput="javascript: if(this.value > this.max) this.value = this.max;">
                             </div>
                             <div class="col-1"></div>
                             <div class="col-10">
+                                <p class="border-7 mt-1">Por favor, revisar que el número de adultos y niños es correcto.</p>
                                 <button type="button" class="btn btn-success btn-lg me-1"(click)="confirmAsistance( adults.value, childs.value)">SI Asistiré</button>
                                 <button type="button" class="btn btn-danger btn-lg" (click)="negativeAsistance()">NO Asistiré</button>
                             </div>
@@ -137,14 +117,27 @@
         <div class="white-section">
             <div class="row">
                 <h1 class=" col-12 title">Mesa de Regalos</h1>
-                <p>Agradecemos que quieran ser parte de este gran paso en nuetras vidas al iniciar una nueva familia.</p>
-                <p>En el siguiente icono podrás ver nuestra mesa de regalos</p>
+                <p>Nuestro mejor regalo es que estés con nosotros en nuestro día, pero si deseas hacernos un obsequio aquí te dejamos nuestras mesas de regalos o si lo prefieres también puedes llevarlo el día del evento.</p>
+                <p class="thanks">¡Muchas Gracias!</p>
             </div>
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-4">
                     <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/50585181" target="_blank">
-                        <i class="bi bi-gift"></i> 
+                        <i>
+                            <img class="img-thumbnail logo" src="assets/Logo2.png" alt="">
+                        </i> 
+                    </a>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <a href="https://www.amazon.com.mx/wedding/miguel-angel-ferreira-moreno-jezabel-rosas-milian-cuautla-november-2021/registry/37I5OP0SHQQMY" target="_blank">
+                        <i>
+                            <img class="img-thumbnail logo" src="assets/Logo1.png" alt="">
+                        </i> 
                     </a>
                 </div>
                 <div class="col-4"></div>
